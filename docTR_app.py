@@ -9,21 +9,6 @@ import fitz
 import tensorflow
 import streamlit as st
 
-import os
-import numpy as np
-import pandas as pd
-from tqdm import tqdm
-from glob import glob
-import matplotlib.pyplot as plt
-import matplotlib.image as implt
-from IPython.display import clear_output as cls
-
-import tensorflow as tf
-import tensorflow.data as tfd
-from tensorflow.keras.layers import *
-from tensorflow.keras.models import Model, load_model
-from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
-
 st.title("Image to Text App")
 
 
