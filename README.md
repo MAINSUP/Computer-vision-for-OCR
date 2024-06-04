@@ -8,3 +8,4 @@ Text recognition results will appear in the terminal.
 1. Exploring Optical Character Recognition (OCR) with Streamlit and DocTR.
 https://medium.com/@alperenclk/exploring-optical-character-recognition-ocr-with-streamlit-and-doctr-00e95ae36e4e
 2. 
+3. Handwritten text recognition (with OCR) using TensorFlow. https://medium.com/@YasinShafiei/handwritten-text-recognition-ocr-with-tensorflow-2a478ab31db1
