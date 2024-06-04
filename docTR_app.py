@@ -1,17 +1,13 @@
+#importing necessary libraries
 import streamlit as st
 from doctr.io import DocumentFile
 from doctr.models import ocr_predictor
 import time
 from IPython.display import display
-import cv2
-import PIL
-import fitz
-import tensorflow
 import streamlit as st
 
-st.title("Image to Text App")
-
-
+st.title("Image to Text App") # Setting title of the app window
+#defining image processing function
 def ocr(item):
     model = ocr_predictor("db_resnet50", "crnn_vgg16_bn", pretrained=True)
     result = model(item)
@@ -33,7 +29,7 @@ if st.button("Show The URL"):
     single_img_doc = DocumentFile.from_url(url)
     result, json_output = ocr(single_img_doc)
     display(result, json_output)
-
+#defining switch cases to call the ocr function
 elif uploaded_file is not None:
     # start timer
     start_time = time.time()
@@ -46,4 +42,4 @@ elif uploaded_file is not None:
         single_img_doc = DocumentFile.from_images(image)
 
     result, json_output = ocr(single_img_doc)
-    display(result, json_output)
+    display(result, json_output) #displaying prediction result in the terminal window
