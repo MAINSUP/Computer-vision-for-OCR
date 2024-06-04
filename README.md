@@ -6,4 +6,5 @@ Text recognition results will appear in the terminal.
 
 ### References
 1. Exploring Optical Character Recognition (OCR) with Streamlit and DocTR.
-2. https://medium.com/@alperenclk/exploring-optical-character-recognition-ocr-with-streamlit-and-doctr-00e95ae36e4e
+   https://medium.com/@alperenclk/exploring-optical-character-recognition-ocr-with-streamlit-and-doctr-00e95ae36e4e
+2. 
