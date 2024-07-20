@@ -4,9 +4,10 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 import keras
 from keras import layers
+from keras.regularizers import l2
 
-IMG_HEIGHT = 180
-IMG_WIDTH = 180
+IMG_HEIGHT = 100
+IMG_WIDTH = 600
 BATCH_SIZE = 32
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
@@ -82,24 +83,39 @@ def build_model(num_classes):
         layers.RandomTranslation(height_factor=0.2, width_factor=0.2)  # random image translation
     ])
     # typical CNN neural network with data rescaling and augmentation layers
-    model = keras.Sequential([
-        layers.Rescaling(1. / 255),
-        data_augmentation,
-        layers.Conv2D(128, 3, activation='relu'),
-        layers.MaxPooling2D(),
-        layers.Conv2D(512, 3, activation='relu', padding='same'),
-        layers.MaxPooling2D(),
-        layers.Conv2D(512, 3, activation='relu', padding='same'),
-        layers.MaxPooling2D(),
-        layers.Dropout(0.3),
-        layers.Flatten(),
-        layers.Dense(128, activation='relu'),
 
-        layers.Dense(num_classes)
+
+    model = keras.Sequential([
+        keras.layers.Rescaling(1. / 255),
+        data_augmentation,
+
+        keras.layers.Conv2D(32, 3, activation='relu', kernel_initializer='he_normal'),
+        keras.layers.MaxPooling2D(),
+        keras.layers.Dropout(0.2),
+        keras.layers.Conv2D(32, 3, activation='relu', padding='same'),
+        keras.layers.MaxPooling2D(),
+        keras.layers.Dropout(0.2),
+        keras.layers.Conv2D(32, 3, activation='relu', padding='same'),
+        keras.layers.MaxPooling2D(),
+        keras.layers.Dropout(0.3),
+        keras.layers.Flatten(),
+        keras.layers.Dense(16, activation='relu', kernel_regularizer=l2(0.01),
+                              bias_regularizer=l2(0.01)),
+        keras.layers.Dense(32, activation='relu', kernel_regularizer=l2(0.01),
+                              bias_regularizer=l2(0.01)),
+
+        keras.layers.Dense(num_classes)
     ])
     # defining optimizer function
+    opt = keras.optimizers.Adam(
+        learning_rate=0.001,
+        beta_1=0.9,
+        beta_2=0.999,
+        epsilon=1e-07,
+        amsgrad=False,
+        weight_decay=1e-6)
     model.compile(
-        optimizer='adam',
+        optimizer=opt,
         loss=keras.losses.SparseCategoricalCrossentropy(from_logits=True),
         metrics=['accuracy'])
 
