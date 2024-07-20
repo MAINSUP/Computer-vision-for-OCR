@@ -1,4 +1,4 @@
-Application to convert both scanned and digital documents to docx type file.
+#### Application to convert both scanned and digital documents to docx type file.
 * Digital documents are simply read and saved in a docx document.
 * Scanned pdf documents recognition is featured with print/handwriting recognition model allowing to appear handwritten text as cursive font in an output file.
 * Application is optimized for poor quality documents processing; however, user should pass that y/n flag at starting prompt to avoid preprocessing of documents of good quality.
