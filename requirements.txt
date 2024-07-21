@@ -47,7 +47,7 @@ opencv-python==4.10.0.82
 opt-einsum==3.3.0
 optree==0.10.0
 pillow==10.2.0
-pipdeptree==2.22.0
+pipdeptree
 pipreqs==0.5.0
 pkginfo==1.10.0
 platformdirs==4.1.0
