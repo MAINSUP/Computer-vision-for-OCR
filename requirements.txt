@@ -1,5 +1,3 @@
-click==8.1.7
-click-plugins==1.1.1
 cligj==0.7.2
 docopt==0.6.2
 doctr==1.9.0
@@ -92,12 +90,6 @@ python-docx==1.1.2
 python-json-logger==2.0.7
 python-rapidjson==1.16
 python-slugify==8.0.1
-python-telegram-bot==20.7
-pytz==2023.3.post1
-pywin32==306
-pywin32-ctypes==0.2.2
-pywinpty==2.0.12
-pyxnat==1.6.2
 PyYAML==6.0.1
 pyzmq==25.1.2
 qrcode==7.4.2
@@ -134,7 +126,6 @@ streamlit==1.35.0
 tensorflow==2.15.1
 tensorflow-datasets==4.9.4
 tensorflow-estimator==2.15.0
-tensorflow-hub==0.16.1
 tensorflow-intel==2.15.1
 tensorflow-io-gcs-filesystem==0.31.0
 tensorflow-metadata==1.14.0
