@@ -126,7 +126,6 @@ streamlit==1.35.0
 tensorflow==2.15.1
 tensorflow-datasets==4.9.4
 tensorflow-estimator==2.15.0
-tensorflow-intel==2.15.1
 tensorflow-io-gcs-filesystem==0.31.0
 tensorflow-metadata==1.14.0
 tensorspacejs==0.0.2
