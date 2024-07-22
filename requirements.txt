@@ -140,7 +140,7 @@ torchinfo
 torchsummary
 torchvision
 tornado==6.4
-tqdm==4.66.1
+stqdm
 traitlets==5.14.1
 traits==6.3.2
 transformers==4.39.1
