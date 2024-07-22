@@ -41,7 +41,6 @@ matplotlib==3.8.2
 matplotlib-inline==0.1.6
 numpy==1.26.4
 oauthlib==3.2.2
-object-detection==0.0.3
 opencv-contrib-python==4.9.0.80
 opencv-python==4.10.0.82
 opt-einsum==3.3.0
