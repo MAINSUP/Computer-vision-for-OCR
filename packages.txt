@@ -1,6 +1,1 @@
 tesseract-ocr
-torch
-torchaudio
-torchinfo
-torchsummary
-torchvision
