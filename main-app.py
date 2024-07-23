@@ -12,10 +12,7 @@ warnings.filterwarnings('ignore')
 
 
 detectron2 = 'git+https://github.com/facebookresearch/detectron2.git'
-
-
-def install(detectron2):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", detectron2])
+subprocess.check_call([sys.executable, "-m", "pip", "install", detectron2])
 
 
 def ocr(uploaded_file, language, curconfidence, blockconfidence, noise):
