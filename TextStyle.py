@@ -10,7 +10,7 @@ def text_style(segment, confidence):
     class_names = ['Cursive', 'Print']
     img_height = 100
     img_width = 600
-    model = keras.models.load_model(os.getcwd())
+    model = keras.models.load_model('/mount/src/cv-internship/')
     probability_model = keras.Sequential([model, keras.layers.Softmax()])
     segment = tf.convert_to_tensor(segment)
     input_tensor = tf.image.resize(segment, [img_height, img_width])
