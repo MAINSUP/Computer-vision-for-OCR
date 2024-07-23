@@ -14,7 +14,8 @@ warnings.filterwarnings('ignore')
 for r, s, f in os.walk("/"):
     for i in f:
         if "tesseract" in i:
-            print(os.path.join(r, i)) # pytesseract.pytesseract.tesseract_cmd = os.path.join(r, i)
+            print(os.path.join(r, i)) # 
+            pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 # tessdata_dir_config = "--tessdata-dir 'C:\\Program Files \\Tesseract-OCR\\tessdata\\"
 
 
