@@ -12,7 +12,7 @@ warnings.filterwarnings('ignore')
 
 
 detectron2 = 'https://dl.fbaipublicfiles.com/detectron2/wheels/cpu/torch1.10/index.html'
-subprocess.check_call([sys.executable, "-m", "pip", "install", detectron2])
+subprocess.check_call([sys.executable, "-m", "pip", "install", "detectron2", "-f", detectron2])
 
 def ocr(uploaded_file, language, curconfidence, blockconfidence, noise):
     """
