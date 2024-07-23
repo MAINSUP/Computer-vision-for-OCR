@@ -2,7 +2,7 @@ import numpy as np
 from PIL import Image
 from scipy.ndimage import rotate
 import cv2
-from tqdm import tqdm
+from stqdm import stqdm
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -14,7 +14,7 @@ def good_image(pixmaps, noise):
     angles = np.arange(-limit, limit + delta, delta)
     print("Checking page alignment and removing any noise")
 
-    for num, pix in tqdm(enumerate(pixmaps)):  # iterate through the pages
+    for num, pix in stqdm(enumerate(pixmaps)):  # iterate through the pages
         print("Processing page {}".format(num+1))
         scores = []
         img = Image.frombytes(mode='RGB', size=[pix.width, pix.height], data=pix.samples)  # getting original image

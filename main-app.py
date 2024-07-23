@@ -4,7 +4,7 @@ import ToDocx
 import LayoutParser
 import fitz
 import datetime
-from tqdm import tqdm
+from stqdm import stqdm
 import subprocess
 import sys
 import warnings
@@ -50,7 +50,7 @@ def extract_text_from_pdf(pdf_file):
     text = ""
     pixmaps = []
     print("Processing {} page(s)".format(len(doc)))
-    for page_num in tqdm(range(len(doc))):
+    for page_num in stqdm(range(len(doc))):
         page = doc.load_page(page_num)
         text += page.get_text()  # collecting text from digital file
         pix = page.get_pixmap(dpi=300)  # render page to a Pixmap with higher resolution
