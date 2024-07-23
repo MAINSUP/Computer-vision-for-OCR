@@ -137,6 +137,8 @@ torchaudio==0.10.1
 torchinfo
 torchsummary
 torchvision==0.11.2
+-f https://dl.fbaipublicfiles.com/detectron2/wheels/cpu/torch1.10/index.html
+detectron2
 tornado==6.4
 stqdm
 traitlets==5.14.1
