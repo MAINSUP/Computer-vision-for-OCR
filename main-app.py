@@ -11,7 +11,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
-detectron2 = 'git+https://github.com/facebookresearch/detectron2.git'
+detectron2 = 'git+https://github.com/facebookresearch/detectron2.git@v0.4#egg=detectron2' 
 subprocess.check_call([sys.executable, "-m", "pip", "install", detectron2])
 
 
