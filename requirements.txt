@@ -134,7 +134,7 @@ tinycss2==1.3.0
 tokenizers==0.15.2
 torch==1.10.1
 torchaudio==0.10.1
-torchinfo==1.10.0
+torchinfo
 torchsummary
 torchvision==0.11.2
 tornado==6.4
