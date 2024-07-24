@@ -34,7 +34,10 @@ def im2dox(file, language, confidence):
             font_style = TextStyle.text_style(segment, confidence)
             # #*#for (bbox, text, prob) in result:
             for t in result:
-                text = t.encode('UTF-8')
+                try:
+                    text = t.encode('UTF-8')
+                except UnicodeEncodeError:
+                    pass
                 print(text)
                 """
                 text.rstrip()
