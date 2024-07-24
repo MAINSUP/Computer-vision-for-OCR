@@ -34,8 +34,8 @@ def im2dox(file, language, confidence):
             font_style = TextStyle.text_style(segment, confidence)
             # #*#for (bbox, text, prob) in result:
             for t in result:
-                t.encode("ascii", "ignore")
-                text = t.decode('UTF-8')
+                text = t.encode("ascii", "ignore").decode('UTF-8')
+                
                 """
                 text.rstrip()
                 idx = length = len(text)
