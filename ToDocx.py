@@ -52,7 +52,7 @@ def im2dox(file, language, confidence):
                     run.font.size = Pt(14)
                 else:
                     run = p.add_run(text)
-                    run.font.name = 'Brush Script MT'       # writing cursive font text
+                   # run.font.name = 'Brush Script MT'       # writing cursive font text
                     run.font.size = Pt(14)
 
     document.add_section(start_type=WD_SECTION.NEW_PAGE)
