@@ -14,8 +14,7 @@ warnings.filterwarnings('ignore')
 for r, s, f in os.walk("/"):
     for i in f:
         if "tesseract" in i:
-            print(os.path.join(r, i)) # 
-            pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
+            pytesseract.pytesseract.tesseract_cmd = os.path.join(r, i)
 # tessdata_dir_config = "--tessdata-dir 'C:\\Program Files \\Tesseract-OCR\\tessdata\\"
 
 
@@ -32,14 +31,25 @@ def im2dox(file, language, confidence):
             # #*#result = reader.readtext(segment)  # and filled with predicted text
             result = pytesseract.image_to_string(segment, lang=language, config='--psm 6')
             font_style = TextStyle.text_style(segment, confidence)
-            if font_style != 'Cursive':
-                # #*#for (bbox, text, prob) in result:
-                for text in result:
+            # #*#for (bbox, text, prob) in result:
+            for text in result:
+                text.rstrip()
+                idx = length = len(text)
+                for c in text[::-1]:
+                    if ord(c) > 126:
+
+                        # character with ASCII value out of printable range
+                        idx -= 1
+                    else:
+                        # valid-character found
+                        break
+                    if idx < length:
+                        # strip non-printable characters from the end of the line
+                        text = text[0:idx]
+                if font_style != 'Cursive':
                     run = p.add_run(text)
                     run.font.size = Pt(14)
-            else:
-                # #*#for (bbox, text, prob) in result:
-                for text in result:
+                else:
                     run = p.add_run(text)
                     run.font.name = 'Brush Script MT'       # writing cursive font text
                     run.font.size = Pt(14)
