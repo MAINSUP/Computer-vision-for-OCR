@@ -34,6 +34,9 @@ def im2dox(file, language, confidence):
             font_style = TextStyle.text_style(segment, confidence)
             # #*#for (bbox, text, prob) in result:
             for text in result:
+                text.encode("ascii", "ignore")
+                text.decode('UTF-8')
+                """
                 text.rstrip()
                 idx = length = len(text)
                 for c in text[::-1]:
@@ -47,6 +50,7 @@ def im2dox(file, language, confidence):
                     if idx < length:
                         # strip non-printable characters from the end of the line
                         text = text[0:idx]
+                        """
                 if font_style != 'Cursive':
                     run = p.add_run(text)
                     run.font.size = Pt(14)
