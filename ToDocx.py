@@ -33,9 +33,9 @@ def im2dox(file, language, confidence):
             result = pytesseract.image_to_string(segment, lang=language, config='--psm 6')
             font_style = TextStyle.text_style(segment, confidence)
             # #*#for (bbox, text, prob) in result:
-            for text in result:
-                text.encode("ascii", "ignore")
-                text.decode('UTF-8')
+            for t in result:
+                t.encode("ascii", "ignore")
+                text = t.decode('UTF-8')
                 """
                 text.rstrip()
                 idx = length = len(text)
