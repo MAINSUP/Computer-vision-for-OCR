@@ -9,6 +9,8 @@ from stqdm import stqdm
 import os
 import warnings
 warnings.filterwarnings('ignore')
+import locale
+locale.getpreferredencoding()
 
 
 for r, s, f in os.walk("/"):
@@ -38,29 +40,19 @@ def im2dox(file, language, confidence):
                     text = t.encode("cp850").decode("cp850")
                 except UnicodeEncodeError:
                     print(t)
-                """
-                text.rstrip()
-                idx = length = len(text)
-                for c in text[::-1]:
-                    if ord(c) > 126:
-
-                        # character with ASCII value out of printable range
-                        idx -= 1
-                    else:
-                        # valid-character found
-                        break
-                    if idx < length:
-                        # strip non-printable characters from the end of the line
-                        text = text[0:idx]
-                        """
                 if font_style != 'Cursive':
-                    run = p.add_run(text)
-                    run.font.size = Pt(14)
+                    try:
+                        run = p.add_run(text)
+                        run.font.size = Pt(14)
+                    except ValueError:
+                        del text
                 else:
-                    run = p.add_run(text)
-                   # run.font.name = 'Brush Script MT'       # writing cursive font text
-                    run.font.size = Pt(14)
-
+                     try:
+                         run = p.add_run(text)
+                         run.font.name = 'Brush Script MT'       # writing cursive font text
+                         run.font.size = Pt(14)
+                     except ValueError:
+                        del text
     document.add_section(start_type=WD_SECTION.NEW_PAGE)
     return document
 
