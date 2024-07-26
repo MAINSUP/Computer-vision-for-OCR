@@ -21,5 +21,4 @@ main.py --help in comand line will retrive the following help topics:
         Default is n (Image does not contain noise)."
   <li class="masthead__menu-item">
             <a href="https://cv-pdf2doxc.streamlit.app"> PDF to Docx App</a>
-  
-      </li>
+        </li>
