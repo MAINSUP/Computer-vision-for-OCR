@@ -73,26 +73,37 @@ def getlayout(pproces_im_arr, blockconfidence):
 st.title("PDF to DOCX Converter with OCR")
 language = st.selectbox(
        'Select language',
-       ('eng', 'spa', 'fra', 'deu', 'hin', 'chi_sim', 'ukr', 'ara', 'ron', 'pol', 'tur'))
+       ('eng', 'spa', 'fra', 'deu', 'ukr', 'ara', 'ron', 'pol', 'tur'))
 curconfidence = st.slider(
     "Select a handwritting confidence level",
-    0.0, 1.0, 0.05)
+    min_value=0.0, max_value=1.0, value=0.85, step=0.05)
 blockconfidence = st.slider(
     "Select a layout block type confidence level",
-    0.0, 1.0, 0.05)
+    min_value=0.0, max_value=1.0, value=0.25, step=0.05)
 noise = st.checkbox("Does your image contain noise?")
-uploaded_file = st.file_uploader("Upload a PDF file", type="pdf")
+uploaded_files = st.file_uploader("Upload a PDF file", type="pdf")
 
-if uploaded_file is not None:
-    st.write("Processing file...")
-    docx_file = ocr(uploaded_file, language, curconfidence, blockconfidence, noise)
+if uploaded_files is not None:
+    for loaded_file in uploaded_files:
+        st.write("Processing file...")
+        docx_file = ocr(loaded_file, language, curconfidence, blockconfidence, noise)
+        docx_file.save('{}.docx'.format(datetime.datetime.now().strftime("%Y-%m-%d_%I-%M-%S_%p")))
+        st.write("Conversion completed.")
 
-    st.write("Conversion completed.")
+document_list = []
+for path, subdirs, files in os.walk(os.getcwd()):
+    for name in files:
+        # For each file we find, we need to ensure it is a .docx file before adding
+        #  it to our list
+        if os.path.splitext(os.path.join(path, name))[1] == ".docx":
+            document_list.append(os.path.join(path, name))
 
-    with open(docx_file, "rb") as file:
+for file_name in document_list:
+    with open(file_name, "rb") as file:
         btn = st.download_button(
             label="Download DOCX",
             data=file,
-            file_name=docx_file,
+            file_name=file_name,
             mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
         )
+
