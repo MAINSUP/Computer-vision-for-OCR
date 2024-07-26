@@ -81,7 +81,7 @@ blockconfidence = st.slider(
     "Select a layout block type confidence level",
     min_value=0.0, max_value=1.0, value=0.25, step=0.05)
 noise = st.checkbox("Does your image contain noise?")
-uploaded_files = st.file_uploader("Upload a PDF file", type="pdf")
+uploaded_files = st.file_uploader("Upload a PDF file", type="pdf", accept_multiple_files=True)
 
 if uploaded_files is not None:
     for loaded_file in uploaded_files:
