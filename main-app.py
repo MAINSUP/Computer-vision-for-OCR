@@ -84,7 +84,7 @@ if uploaded_files is not None:
         st.write("Processing file...")
         docx_file = ocr(loaded_file, language, curconfidence, blockconfidence, noise)
         document_list.append(datetime.datetime.now().strftime("%Y-%m-%d_%I-%M-%S_%p"))
-        docx_file.save('{}.docx'.format(document_list[num]))
+        docx_file.save('{}.docx'.format(datetime.datetime.now().strftime("%Y-%m-%d_%I-%M-%S_%p")))
         st.write("Conversion completed.")
 
 for file_name in document_list:
