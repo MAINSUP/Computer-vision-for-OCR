@@ -5,14 +5,11 @@ import LayoutParser
 import fitz
 import datetime
 from stqdm import stqdm
-import subprocess
+import os
 import sys
 import warnings
 warnings.filterwarnings('ignore')
 
-
-#detectron2 = 'https://dl.fbaipublicfiles.com/detectron2/wheels/cpu/torch1.10/index.html'
-#subprocess.check_call([sys.executable, "-m", "pip", "install", "detectron2", "-f", detectron2])
 
 def ocr(uploaded_file, language, curconfidence, blockconfidence, noise):
     """
