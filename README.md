@@ -1,4 +1,4 @@
-#### Application to convert both scanned and digital documents to docx type file.
+ <h1> Application to convert both scanned and digital documents to docx type file. </h1>
 * Digital documents are simply read and saved in a docx document.
 * Scanned pdf documents recognition is featured with print/handwriting recognition model allowing to appear handwritten text as cursive font in an output file.
 * Application is optimized for poor quality documents processing; however, user should pass that y/n flag at starting prompt to avoid preprocessing of documents of good quality.
@@ -19,11 +19,8 @@ main.py --help in comand line will retrive the following help topics:
         Default is 0.25.
         --noise is a boolean input option. It will be prompted at start to define preprocessing pipeline.
         Default is n (Image does not contain noise)."
- <h1>
-        Creating a Nested Webpage using 
-        'iframe' Tag: Geeksforgeeks
-      </h1>
- 
-           <embed src="https://cv-pdf2doxc.streamlit.app/"
+
+    
+           <a href="https://cv-pdf2doxc.streamlit.app/"
           type="text/html" />
   
