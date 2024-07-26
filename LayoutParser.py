@@ -34,8 +34,10 @@ def layout_parser(page, blockconfidence):
         text_blocks = lp.Layout([b.set(id=idx) for idx, b in enumerate(lp.Layout(figure_block) +
                                                                        left_blocks +
                                                                        right_blocks)])
+        text_blocks.sort(key = lambda b:b.coordinates[1], inplace=True)
     else:
         text_blocks = lp.Layout([b.set(id=idx) for idx, b in enumerate(left_blocks + right_blocks)])
+        text_blocks.sort(key = lambda b:b.coordinates[1], inplace=True)
     textim_arr = []
     for block in text_blocks:
         segment_image = (block
