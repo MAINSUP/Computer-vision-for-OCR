@@ -33,7 +33,7 @@ def ocr(uploaded_file, language, curconfidence, blockconfidence, noise):
         docx_file = ToDocx.im2dox(file, language, curconfidence)
     else:
         docx_file = ToDocx.txt2dox(text)  # passing collected text directly to file creator
-    return docx_file.save('{}.docx'.format(datetime.datetime.now().strftime("%Y-%m-%d_%I-%M-%S_%p")))
+    return docx_file
 
 
 def extract_text_from_pdf(pdf_file):
