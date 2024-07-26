@@ -24,6 +24,6 @@ main.py --help in comand line will retrive the following help topics:
         'iframe' Tag: Geeksforgeeks
       </h1>
  
-      <iframe src="https://cv-pdf2doxc.streamlit.app/"
-              height="500px" width="1000px">
-      </iframe>
+           <embed src="https://cv-pdf2doxc.streamlit.app/"
+          type="text/html" />
+  
