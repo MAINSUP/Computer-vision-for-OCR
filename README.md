@@ -20,6 +20,5 @@ main.py --help in comand line will retrive the following help topics:
         --noise is a boolean input option. It will be prompted at start to define preprocessing pipeline.
         Default is n (Image does not contain noise)."
 
-    
-           <a href="https://cv-pdf2doxc.streamlit.app/"> PDF to Docx App</a>
+            <a href="https://cv-pdf2doxc.streamlit.app"> PDF to Docx App</a>
   
