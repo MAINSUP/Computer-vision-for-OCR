@@ -97,7 +97,7 @@ for file_name in document_list:
         btn = st.download_button(
             label="Download DOCX",
             data=file,
-            file_name=file_name,
+            file_name=file_name+".docx",
             mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
         )
 
