@@ -5,8 +5,6 @@ import LayoutParser
 import fitz
 import datetime
 from stqdm import stqdm
-import os
-import sys
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -80,20 +78,14 @@ blockconfidence = st.slider(
 noise = st.checkbox("Does your image contain noise?")
 uploaded_files = st.file_uploader("Upload a PDF file", type="pdf", accept_multiple_files=True)
 
+ocument_list = []
 if uploaded_files is not None:
-    for loaded_file in uploaded_files:
+    for num, loaded_file in enumerate(uploaded_files):
         st.write("Processing file...")
         docx_file = ocr(loaded_file, language, curconfidence, blockconfidence, noise)
-        docx_file.save('{}.docx'.format(datetime.datetime.now().strftime("%Y-%m-%d_%I-%M-%S_%p")))
+        document_list.append(datetime.datetime.now().strftime("%Y-%m-%d_%I-%M-%S_%p"))
+        docx_file.save('{}.docx'.format(document_list[num]))
         st.write("Conversion completed.")
-
-document_list = []
-for path, subdirs, files in os.walk(os.getcwd()):
-    for name in files:
-        # For each file we find, we need to ensure it is a .docx file before adding
-        #  it to our list
-        if os.path.splitext(os.path.join(path, name))[1] == ".docx":
-            document_list.append(os.path.join(path, name))
 
 for file_name in document_list:
     with open(file_name, "rb") as file:
