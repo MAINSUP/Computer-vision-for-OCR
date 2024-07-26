@@ -91,7 +91,7 @@ if uploaded_files is not None:
         document_list.append(datetime.datetime.now().strftime("%Y-%m-%d_%I-%M-%S_%p"))
         docx_file.save('{}.docx'.format(document_list[0]))
         st.write("Conversion completed.")
-uploaded_files = None
+del uploaded_files
 for file_name in document_list:
     with open(file_name+".docx", "rb") as file:
         btn = st.download_button(
