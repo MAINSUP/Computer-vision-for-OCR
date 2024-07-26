@@ -93,7 +93,7 @@ if uploaded_files is not None:
         st.write("Conversion completed.")
 
 for file_name in document_list:
-    with open(file_name, "rb") as file:
+    with open(file_name+".docx", "rb") as file:
         btn = st.download_button(
             label="Download DOCX",
             data=file,
