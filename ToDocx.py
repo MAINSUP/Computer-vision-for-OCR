@@ -35,10 +35,9 @@ def im2dox(file, language, confidence):
             # #*#for (bbox, text, prob) in result:
             for t in result:
                 try:
-                    text = t.encode('UTF-8')
+                    text = t.encode("cp850").decode("cp850")
                 except UnicodeEncodeError:
-                    pass
-                print(text)
+                    print(t)
                 """
                 text.rstrip()
                 idx = length = len(text)
