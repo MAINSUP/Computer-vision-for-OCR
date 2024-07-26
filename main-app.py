@@ -78,7 +78,7 @@ blockconfidence = st.slider(
 noise = st.checkbox("Does your image contain noise?")
 uploaded_files = st.file_uploader("Upload a PDF file", type="pdf", accept_multiple_files=True)
 
-ocument_list = []
+document_list = []
 if uploaded_files is not None:
     for num, loaded_file in enumerate(uploaded_files):
         st.write("Processing file...")
