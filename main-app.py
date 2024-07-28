@@ -8,22 +8,24 @@ from stqdm import stqdm
 import warnings
 warnings.filterwarnings('ignore')
 
-
+st.set_page_config(
+    page_title="PDF to DOCX",
+    page_icon="📑",
+)
 st.markdown(
         """
-        Kindly enter language code prior to text recognition. There are total 12 supported languages.
+    Kindly enter language code prior to text recognition. There are total 12 supported languages.
         The most commonly used are: eng (English), spa (Spanish), fra (French),
         deu (German), hin (Hindi), chi_sim (Simplified Chinese), ukr (Ukrainian), etc.
         Default is English.
-       Options:
+        Options:
         --curconfidence or -cc option sets confidence level (from 0 to 1) for cursive text detection.
         Default is 0.85.
         --blockconfidende or -bc sets confidence level (from 0 to 1) for text block recognition.
         Default is 0.25.
         --noise is a boolean input option. It will be prompted at start to define preprocessing pipeline.
         Default is n (Image does not contain noise).
-    """
-)
+    """)
 def ocr(uploaded_file, language, curconfidence, blockconfidence, noise):
     """
     Kindly enter language code prior to text recognition. There are total 12 supported languages.
